@@ -7,11 +7,6 @@ SPDX-License-Identifier: BSD-3-Clause
 
 package undoex
 
-// -build linux
-
-// #cgo linux,amd64 LDFLAGS: -l undoex_x64
-// #cgo linux,386 LDFLAGS: -l undoex_x32
-// #cgo linux,arm64 LDFLAGS: -l undoex_arm64
 // #include <undoex-test-annotations.h>
 // #include <stdlib.h>
 // #include <errno.h>
