@@ -11,11 +11,6 @@ SPDX-License-Identifier: BSD-3-Clause
 // which can then be opened using the Undo Debugger (UndoDB).
 package undolr
 
-// -build linux
-
-// #cgo linux,amd64 LDFLAGS: -l undolr_x64
-// #cgo linux,386 LDFLAGS: -l undolr_x32
-// #cgo linux,arm64 LDFLAGS: -l undolr_arm64
 // #include <undolr.h>
 // #include <stdlib.h>
 // #include <errno.h>
