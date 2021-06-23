@@ -5,10 +5,12 @@
 #ifndef UNDOLR_DEPRECATED_H
 #define UNDOLR_DEPRECATED_H
 
-#include "../common/common.h"
-
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+#ifndef __WEAK_SYMBOL__
+#define __WEAK_SYMBOL__ __attribute__((weak))
 #endif
 
 /**
