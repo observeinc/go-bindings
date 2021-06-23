@@ -6,10 +6,12 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#include "../common/common.h"
-
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+#ifndef __WEAK_SYMBOL__
+#define __WEAK_SYMBOL__ __attribute__((weak))
 #endif
 
 /**

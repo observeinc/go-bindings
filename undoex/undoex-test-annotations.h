@@ -2,14 +2,16 @@
 
 #pragma once
 
-#include "../common/common.h"
-
 #include "./undoex-annotations.h"
 
 #include <stdbool.h>
 
 #ifdef __cplusplus
 extern "C" {
+#endif
+
+#ifndef __WEAK_SYMBOL__
+#define __WEAK_SYMBOL__ __attribute__((weak))
 #endif
 
 /**
