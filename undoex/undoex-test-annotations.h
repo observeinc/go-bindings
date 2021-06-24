@@ -10,8 +10,8 @@
 extern "C" {
 #endif
 
-#ifndef __WEAK_SYMBOL__
-#define __WEAK_SYMBOL__ __attribute__((weak))
+#ifndef WEAK_SYMBOL
+#define WEAK_SYMBOL __attribute__((weak))
 #endif
 
 /**
@@ -57,7 +57,7 @@ typedef struct _undoex_test_annotation_t undoex_test_annotation_t;
  *         NULL otherwise (and errno will be set accordingly)
  */
 undoex_test_annotation_t *
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_new(const char *base_test_name,
                            bool add_run_suffix);
 
@@ -68,7 +68,7 @@ undoex_test_annotation_new(const char *base_test_name,
  * \param test_annotation the test annotation to free
  */
 void
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_free(undoex_test_annotation_t *test_annotation);
 
 /**
@@ -84,7 +84,7 @@ undoex_test_annotation_free(undoex_test_annotation_t *test_annotation);
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_start(undoex_test_annotation_t *test_annotation);
 
 /**
@@ -106,7 +106,7 @@ undoex_test_annotation_start(undoex_test_annotation_t *test_annotation);
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_end(undoex_test_annotation_t *test_annotation);
 
 /**
@@ -128,7 +128,7 @@ undoex_test_annotation_end(undoex_test_annotation_t *test_annotation);
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_set_result(undoex_test_annotation_t *test_annotation,
                                   undoex_test_result_t test_result);
 
@@ -147,7 +147,7 @@ undoex_test_annotation_set_result(undoex_test_annotation_t *test_annotation,
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_set_output(undoex_test_annotation_t *test_annotation,
                                   undoex_annotation_content_type_t content_type,
                                   const char *output);
@@ -171,7 +171,7 @@ undoex_test_annotation_set_output(undoex_test_annotation_t *test_annotation,
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_add_raw_data(undoex_test_annotation_t *test_annotation,
                                     const char *detail,
                                     const uint8_t *raw_data,
@@ -194,7 +194,7 @@ undoex_test_annotation_add_raw_data(undoex_test_annotation_t *test_annotation,
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_add_text(undoex_test_annotation_t *test_annotation,
                                 const char *detail,
                                 undoex_annotation_content_type_t content_type,
@@ -215,7 +215,7 @@ undoex_test_annotation_add_text(undoex_test_annotation_t *test_annotation,
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_test_annotation_add_int(undoex_test_annotation_t *test_annotation,
                                const char *detail,
                                int64_t value);

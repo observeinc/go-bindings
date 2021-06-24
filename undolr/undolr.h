@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-#ifndef __WEAK_SYMBOL__
-#define __WEAK_SYMBOL__ __attribute__((weak))
+#ifndef WEAK_SYMBOL
+#define WEAK_SYMBOL __attribute__((weak))
 #endif
 
 /**
@@ -76,7 +76,7 @@ typedef enum
  *
  * \return String describing the error, or "<unknown error>".
  */
-const char * __WEAK_SYMBOL__ undolr_error_string(undolr_error_t error);
+const char * WEAK_SYMBOL undolr_error_string(undolr_error_t error);
 
 /**
  * \brief Start recording the current process.
@@ -94,12 +94,12 @@ const char * __WEAK_SYMBOL__ undolr_error_string(undolr_error_t error);
  * failed. If it failed, there may be more specific information about the
  * failure in \c *error.
  */
-int __WEAK_SYMBOL__ undolr_start(undolr_error_t *error);
+int WEAK_SYMBOL undolr_start(undolr_error_t *error);
 
 /**
  * \brief Get the version string for this release.
  */
-const char * __WEAK_SYMBOL__ undolr_get_version_string(void);
+const char * WEAK_SYMBOL undolr_get_version_string(void);
 
 /**
  * \brief Stop recording the current process.
@@ -112,7 +112,7 @@ const char * __WEAK_SYMBOL__ undolr_get_version_string(void);
  * If not discarded immediately, the recorded history is held in memory until
  * \c context is passed to undolr_discard().
  */
-int __WEAK_SYMBOL__ undolr_stop(undolr_recording_context_t *context);
+int WEAK_SYMBOL undolr_stop(undolr_recording_context_t *context);
 
 /**
  * \brief Save recorded program history to a named recording file.
@@ -129,7 +129,7 @@ int __WEAK_SYMBOL__ undolr_stop(undolr_recording_context_t *context);
  * history. The recordings are independent of each other, and each can be
  * replayed on its own.
  */
-int __WEAK_SYMBOL__ undolr_save(const char *filename);
+int WEAK_SYMBOL undolr_save(const char *filename);
 
 /**
  * \brief Start asynchronously saving recorded program history to a named
@@ -146,7 +146,7 @@ int __WEAK_SYMBOL__ undolr_save(const char *filename);
  * undolr_poll_saving_progress(), but must not be passed to undolr_discard() or
  * to another call to undolr_save_async() until the save has completed.
  */
-int __WEAK_SYMBOL__ undolr_save_async(undolr_recording_context_t context, const char *filename);
+int WEAK_SYMBOL undolr_save_async(undolr_recording_context_t context, const char *filename);
 
 /**
  * \brief Check the status of an asynchronous save operation.
@@ -165,7 +165,7 @@ int __WEAK_SYMBOL__ undolr_save_async(undolr_recording_context_t context, const 
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_poll_saving_complete(undolr_recording_context_t context,
+int WEAK_SYMBOL undolr_poll_saving_complete(undolr_recording_context_t context,
                                 int *complete, int *result);
 
 /**
@@ -191,7 +191,7 @@ int __WEAK_SYMBOL__ undolr_poll_saving_complete(undolr_recording_context_t conte
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_poll_saving_progress(undolr_recording_context_t context,
+int WEAK_SYMBOL undolr_poll_saving_progress(undolr_recording_context_t context,
                                 int *complete, int *progress, int *result);
 
 /**
@@ -209,7 +209,7 @@ int __WEAK_SYMBOL__ undolr_poll_saving_progress(undolr_recording_context_t conte
  *
  * The file descriptor is closed when \c context is passed to undolr_discard().
  */
-int __WEAK_SYMBOL__ undolr_get_select_descriptor(undolr_recording_context_t context, int *fd);
+int WEAK_SYMBOL undolr_get_select_descriptor(undolr_recording_context_t context, int *fd);
 
 /**
  * \brief Discard recorded program history from memory.
@@ -220,7 +220,7 @@ int __WEAK_SYMBOL__ undolr_get_select_descriptor(undolr_recording_context_t cont
  * After calling this, the memory used to maintain the recording state has been
  * freed, and \c context must not be passed to any other function in this API.
  */
-int __WEAK_SYMBOL__ undolr_discard(undolr_recording_context_t context);
+int WEAK_SYMBOL undolr_discard(undolr_recording_context_t context);
 
 /**
  * Instruct LiveRecorder to save a recording when the current process exits.
@@ -235,14 +235,14 @@ int __WEAK_SYMBOL__ undolr_discard(undolr_recording_context_t context);
  * The instruction is cancelled by a call to
  * undolr_save_on_termination_cancel() or undolr_stop().
  */
-int __WEAK_SYMBOL__ undolr_save_on_termination(const char *filename);
+int WEAK_SYMBOL undolr_save_on_termination(const char *filename);
 
 /**
  * \brief Cancel any previous call to undolr_save_on_termination().
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_save_on_termination_cancel(void);
+int WEAK_SYMBOL undolr_save_on_termination_cancel(void);
 
 /**
  * \brief Retrieve the current event log size
@@ -251,7 +251,7 @@ int __WEAK_SYMBOL__ undolr_save_on_termination_cancel(void);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_event_log_size_get(long *bytes);
+int WEAK_SYMBOL undolr_event_log_size_get(long *bytes);
 
 /**
  * \brief Set the event log size.
@@ -260,7 +260,7 @@ int __WEAK_SYMBOL__ undolr_event_log_size_get(long *bytes);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_event_log_size_set(long bytes);
+int WEAK_SYMBOL undolr_event_log_size_set(long bytes);
 
 /**
  * \brief Control whether to include symbol files in saved recordings.
@@ -269,7 +269,7 @@ int __WEAK_SYMBOL__ undolr_event_log_size_set(long bytes);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_include_symbol_files(int include);
+int WEAK_SYMBOL undolr_include_symbol_files(int include);
 
 /**
  * \brief Set the path of the file where to log all shared memory accesses.
@@ -308,7 +308,7 @@ int __WEAK_SYMBOL__ undolr_include_symbol_files(int include);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_shmem_log_filename_set(const char *filename);
+int WEAK_SYMBOL undolr_shmem_log_filename_set(const char *filename);
 
 /**
  * \brief Get the current path for the shared memory access log.
@@ -322,7 +322,7 @@ int __WEAK_SYMBOL__ undolr_shmem_log_filename_set(const char *filename);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_shmem_log_filename_get(const char **o_filename);
+int WEAK_SYMBOL undolr_shmem_log_filename_get(const char **o_filename);
 
 /**
  * \brief Set the maximum size of the the file where shared memory accesses are logged.
@@ -341,7 +341,7 @@ int __WEAK_SYMBOL__ undolr_shmem_log_filename_get(const char **o_filename);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_shmem_log_size_set(unsigned long max_size);
+int WEAK_SYMBOL undolr_shmem_log_size_set(unsigned long max_size);
 
 /**
  * \brief Get the current maximum size for the shared memory access log.
@@ -353,7 +353,7 @@ int __WEAK_SYMBOL__ undolr_shmem_log_size_set(unsigned long max_size);
  *
  * \return 0 for success, or -1 for failure, with an error code in \c errno.
  */
-int __WEAK_SYMBOL__ undolr_shmem_log_size_get(unsigned long *o_max_size);
+int WEAK_SYMBOL undolr_shmem_log_size_get(unsigned long *o_max_size);
 
 #include "./undolr_deprecated.h"
 

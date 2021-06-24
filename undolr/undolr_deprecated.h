@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-#ifndef __WEAK_SYMBOL__
-#define __WEAK_SYMBOL__ __attribute__((weak))
+#ifndef WEAK_SYMBOL
+#define WEAK_SYMBOL __attribute__((weak))
 #endif
 
 /**
@@ -32,7 +32,7 @@ extern "C" {
  * operation, undolr_recording_start() returns zero (indicating success),
  * whereas undolr_start() returns -1 (indicating failure).
  */
-int __WEAK_SYMBOL__ undolr_recording_start(undolr_error_t* o_error);
+int WEAK_SYMBOL undolr_recording_start(undolr_error_t* o_error);
 
 /**
  * \deprecated Deprecated alternative to undolr_stop().
@@ -40,7 +40,7 @@ int __WEAK_SYMBOL__ undolr_recording_start(undolr_error_t* o_error);
  * Behaves identically to `undolr_stop(NULL)`, so that it stops recording and
  * discards the recording context without saving.
  */
-int __WEAK_SYMBOL__ undolr_recording_stop(void);
+int WEAK_SYMBOL undolr_recording_stop(void);
 
 /**
  * \deprecated Deprecated alternative to undolr_stop() followed by
@@ -49,7 +49,7 @@ int __WEAK_SYMBOL__ undolr_recording_stop(void);
  * Stops recording, saves asynchronously to `filename`, and detaches from the
  * debuggee so that recording cannot be restarted.
  */
-int __WEAK_SYMBOL__ undolr_recording_stop_and_save(const char* filename);
+int WEAK_SYMBOL undolr_recording_stop_and_save(const char* filename);
 
 #ifdef __cplusplus
 }
