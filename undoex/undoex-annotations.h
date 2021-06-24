@@ -10,8 +10,8 @@
 extern "C" {
 #endif
 
-#ifndef __WEAK_SYMBOL__
-#define __WEAK_SYMBOL__ __attribute__((weak))
+#ifndef WEAK_SYMBOL
+#define WEAK_SYMBOL __attribute__((weak))
 #endif
 
 /**
@@ -76,7 +76,7 @@ typedef enum
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_annotation_add_raw_data(const char *name,
                                const char *detail,
                                const uint8_t *raw_data,
@@ -103,7 +103,7 @@ undoex_annotation_add_raw_data(const char *name,
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_annotation_add_text(const char *name,
                            const char *detail,
                            undoex_annotation_content_type_t content_type,
@@ -121,7 +121,7 @@ undoex_annotation_add_text(const char *name,
  *         `ENOTSUP`.
  */
 int
-__WEAK_SYMBOL__
+WEAK_SYMBOL
 undoex_annotation_add_int(const char *name,
                           const char *detail,
                           int64_t value);
